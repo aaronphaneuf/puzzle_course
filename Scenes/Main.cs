@@ -11,7 +11,7 @@ public partial class Main : Node
 	private PackedScene buildingScene;
 	private Button placeBuildingButton;
 
-	private Vector2? hoveredGridCell;
+	private Vector2I? hoveredGridCell;
 	
 
 	// Called when the node enters the scene tree for the first time.
