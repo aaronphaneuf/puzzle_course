@@ -1,5 +1,7 @@
 using Godot;
 using System.Collections.Generic;
+using System.Linq;
+using Game.Component;
 
 namespace Game.Manager;
 public partial class GridManager : Node
@@ -25,9 +27,19 @@ public partial class GridManager : Node
 	{
 		occupiedCells.Add(tilePosition);
 	}
-
-	public void HighlightVailidTilesInRadius(Vector2I rootCell, int radius) { 
+	
+	public void HighlightBuildableTiles()
+	{
 		ClearHighlightedTiles();
+		var buildingComponents = GetTree().GetNodesInGroup(nameof(BuildingComponent)).Cast<BuildingComponent>();
+		foreach (var buildingComponent in buildingComponents)
+		{ 
+			HighlightValidTilesInRadius(buildingComponent.GetGridCellPosition(), buildingComponent.BuildableRadius);
+		}
+	}
+
+	private void HighlightValidTilesInRadius(Vector2I rootCell, int radius) { 
+		
 
 		for (var x = rootCell.X - radius; x <= rootCell.X + radius; x++)
 		{

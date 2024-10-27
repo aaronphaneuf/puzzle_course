@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://cm81n2y3uabe"]
+[gd_scene load_steps=7 format=4 uid="uid://cm81n2y3uabe"]
 
 [ext_resource type="Script" path="res://Scenes/Main.cs" id="1_j758d"]
 [ext_resource type="TileSet" uid="uid://cdxnkts25eegr" path="res://resources/tiles.tres" id="2_8oopp"]
 [ext_resource type="TileSet" uid="uid://daespeqb55tm4" path="res://resources/highlight_tileset.tres" id="2_kpi27"]
 [ext_resource type="PackedScene" uid="uid://b7x4fiqhkjddj" path="res://Scenes/manager/GridManager.tscn" id="2_t8pyl"]
+[ext_resource type="PackedScene" uid="uid://d2f3la4rkbilp" path="res://Scenes/Building/Base.tscn" id="5_ababa"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6xepo"]
 size = Vector2(64, 64)
@@ -33,3 +34,6 @@ offset_top = 677.0
 offset_right = 124.0
 offset_bottom = 708.0
 text = "Place Building"
+
+[node name="Base" parent="." instance=ExtResource("5_ababa")]
+position = Vector2(384, 192)
